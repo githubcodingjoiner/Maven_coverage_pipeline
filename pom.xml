@@ -1,0 +1,19 @@
+<!-- https://mvnrepository.com/artifact/io.quarkus/quarkus-junit5 -->
+<dependency>
+    <groupId>io.quarkus</groupId>
+    <artifactId>quarkus-junit5</artifactId>
+    <version>3.17.5</version>
+    <scope>test</scope>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.webjars.npm/selenium-webdriver -->
+<dependency>
+    <groupId>org.webjars.npm</groupId>
+    <artifactId>selenium-webdriver</artifactId>
+    <version>4.10.0</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>4.27.0</version>
+</dependency>
