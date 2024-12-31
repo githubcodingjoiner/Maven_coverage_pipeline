@@ -1,5 +1,12 @@
 pipeline {
     agent any
+    tools {
+        maven 'sonarmaven' 
+    }
+    
+    environment {
+        SONARQUBE_SERVER = 'sonarqube'
+    }
     
     stages {
         stage('Checkout') {
@@ -8,7 +15,7 @@ pipeline {
             }
         }
 
-        stage('Build & test') {
+        stage('Build') {
             steps {
                 bat '''
                 echo "Running JUnit and Selenium tests using Maven..."
