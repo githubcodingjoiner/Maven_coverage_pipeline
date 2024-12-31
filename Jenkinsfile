@@ -8,31 +8,11 @@ pipeline {
             }
         }
 
-        stage('Verify Maven Installation') {
-            steps {
-                bat '''
-                mvn -version
-                if errorlevel 1 (
-                    echo "Error: Maven is not installed or not in PATH."
-                    exit /b 1
-                ) else (
-                    echo "Maven is installed and ready to use."
-                )
-                '''
-            }
-        }
-
-        stage('Run Selenium and JUnit Tests') {
+        stage('Build & test') {
             steps {
                 bat '''
                 echo "Running JUnit and Selenium tests using Maven..."
-                mvn clean test
-                if errorlevel 1 {
-                    echo "Error: Tests failed!"
-                    exit /b 1
-                } else {
-                    echo "Tests executed successfully."
-                }
+                mvn clean verify
                 '''
             }
         }
