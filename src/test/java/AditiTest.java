@@ -4,46 +4,42 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AditiTest {
 
-    private WebDriver driver;
-
-    // Setup WebDriver before each test
-    @BeforeEach
-    public void setup() {
-        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver"); // Update this path
-        driver = new ChromeDriver();
-    }
-
     @Test
     public void testLogin() {
-        // Navigate to the login page
-        driver.get("https://example.com/login");
+        // Set up the WebDriver (Update the path to the actual location of your ChromeDriver)
+        System.setProperty("webdriver.chrome.driver", "C:/path/to/chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
 
-        // Locate the username and password fields
-        WebElement usernameField = driver.findElement(By.id("username"));
-        WebElement passwordField = driver.findElement(By.id("password"));
-        WebElement loginButton = driver.findElement(By.id("loginButton"));
+        try {
+            // Navigate to the login page
+            driver.get("https://example.com/login");
 
-        // Perform login
-        usernameField.sendKeys("testUser");
-        passwordField.sendKeys("testPassword");
-        loginButton.click();
+            // Locate the username, password fields, and login button
+            WebElement usernameField = driver.findElement(By.id("username"));
+            WebElement passwordField = driver.findElement(By.id("password"));
+            WebElement loginButton = driver.findElement(By.id("loginButton"));
 
-        // Validate successful login
-        String expectedTitle = "Dashboard";
-        String actualTitle = driver.getTitle();
-        assertEquals(expectedTitle, actualTitle);
-    }
+            // Perform login
+            usernameField.sendKeys("testUser");
+            passwordField.sendKeys("testPassword");
+            loginButton.click();
 
-    // Tear down WebDriver after each test
-    @AfterEach
-    public void tearDown() {
-        driver.quit();
+            // Validate successful login by checking the page title
+            String expectedTitle = "Dashboard";
+            String actualTitle = driver.getTitle();
+            assertEquals(expectedTitle, actualTitle);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            // Close the browser
+            driver.quit();
+        }
     }
 }
