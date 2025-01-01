@@ -9,11 +9,17 @@
     <packaging>jar</packaging>
 
     <dependencies>
-        <!-- Quarkus JUnit5 for unit testing -->
+        <!-- JUnit5 for unit testing -->
         <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-junit5</artifactId>
-            <version>3.17.5</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.7.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.7.1</version>
             <scope>test</scope>
         </dependency>
 
@@ -87,7 +93,7 @@
         <profile>
             <id>coverage</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault> <!-- Change this to true if you want it active by default -->
             </activation>
             <build>
                 <plugins>
