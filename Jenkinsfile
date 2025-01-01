@@ -31,9 +31,9 @@ pipeline {
             steps {
                 bat '''
                 mvn sonar:sonar ^ 
-                -Dsonar.projectKey=Maven_coverage ^ 
+                -Dsonar.projectKey=Maven_Coverage ^ 
                 -Dsonar.sources=. ^ 
-                -Dsonar.projectName='Maven_coverage' ^ 
+                -Dsonar.projectName='Maven_Coverage' ^ 
                 -Dsonar.host.url=http://localhost:9000 ^ 
                 -Dsonar.token=%SONAR_TOKEN% ^ 
                 -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
