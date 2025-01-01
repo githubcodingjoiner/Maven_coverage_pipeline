@@ -33,11 +33,12 @@ pipeline {
                 mvn sonar:sonar ^ 
                 -Dsonar.projectKey=Maven_Coverage ^ 
                 -Dsonar.sources=. ^ 
-                -Dsonar.projectName='Maven_Coverage' ^ 
+                -Dsonar.projectName="Maven_Coverage" ^ 
                 -Dsonar.host.url=http://localhost:9000 ^ 
                 -Dsonar.token=%SONAR_TOKEN% ^ 
-                -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+                -Dsonar.coverage.jacoco.xmlReportPaths=${project.build.directory}/Jacoco/jacoco.xml
                 '''
+
             }
         }
     }
