@@ -1,13 +1,13 @@
 pipeline {
     agent any
     tools {
-        maven 'sonarmaven' 
+        maven 'sonarmaven' // Ensure 'sonarmaven' is configured in Jenkins
     }
-    
+
     environment {
-        SONARQUBE_SERVER = 'sonarqube'
+        SONARQUBE_SERVER = 'sonarqube'  // Ensure SonarQube server is configured correctly in Jenkins
     }
-    
+
     stages {
         stage('Checkout') {
             steps {
@@ -30,15 +30,14 @@ pipeline {
             }
             steps {
                 bat '''
-                mvn sonar:sonar ^ 
-                -Dsonar.projectKey=Maven_Coverage ^ 
-                -Dsonar.sources=. ^ 
-                -Dsonar.projectName="Maven_Coverage" ^ 
-                -Dsonar.host.url=http://localhost:9000 ^ 
-                -Dsonar.token=%SONAR_TOKEN% ^ 
-                -Dsonar.coverage.jacoco.xmlReportPaths=${project.build.directory}/Jacoco/jacoco.xml
+                mvn sonar:sonar ^
+                -Dsonar.projectKey=Maven_Coverage ^
+                -Dsonar.sources=. ^
+                -Dsonar.projectName="Maven_Coverage" ^
+                -Dsonar.host.url=http://localhost:9000 ^
+                -Dsonar.token=%SONAR_TOKEN% ^
+                -Dsonar.coverage.jacoco.xmlReportPaths=target/Jacoco/jacoco.xml
                 '''
-
             }
         }
     }
