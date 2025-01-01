@@ -34,11 +34,12 @@
 
     <properties>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-        <sonar.coverage.jacoco.xmlReportPaths>C:/Users/Admin/Downloads/Java_project_code/Jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+        <sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/Jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
     </properties>
 
     <build>
         <plugins>
+            <!-- Jacoco Maven Plugin for Coverage -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -53,18 +54,18 @@
                         <id>report</id>
                         <phase>prepare-package</phase>
                         <goals>
-                            <goal>report</goal> 
+                            <goal>report</goal>
                         </goals>
                     </execution>
                     <execution>
                         <id>report-xml</id>
                         <phase>verify</phase>
                         <goals>
-                            <goal>report</goal> 
+                            <goal>report</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>C:/Users/Admin/Downloads/Java_project_code/Jacoco</outputDirectory>
-                            <dataFile>C:/Users/Admin/Downloads/Java_project_code/Jacoco/jacoco.exec</dataFile>
+                            <outputDirectory>${project.build.directory}/Jacoco</outputDirectory>
+                            <dataFile>${project.build.directory}/jacoco.exec</dataFile>
                             <outputFormats>
                                 <outputFormat>XML</outputFormat>
                             </outputFormats>
@@ -114,8 +115,8 @@
                                     <goal>report</goal>
                                 </goals>
                                 <configuration>
-                                    <outputDirectory>C:/Users/Admin/Downloads/Java_project_code/Jacoco</outputDirectory>
-                                    <dataFile>C:/Users/Admin/Downloads/Java_project_code/Jacoco/jacoco.exec</dataFile>
+                                    <outputDirectory>${project.build.directory}/Jacoco</outputDirectory>
+                                    <dataFile>${project.build.directory}/jacoco.exec</dataFile>
                                     <outputFormats>
                                         <outputFormat>XML</outputFormat>
                                     </outputFormats>
