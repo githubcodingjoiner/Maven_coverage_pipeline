@@ -34,8 +34,8 @@
 
     <properties>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-        <!-- Update the path to point to your local Jacoco report -->
-        <sonar.coverage.jacoco.xmlReportPaths>C:/Users/Admin/Downloads/Java_project_code/Jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+        <!-- Update the path to your local Jacoco XML report -->
+        <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/target/Jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
     </properties>
 
     <build>
@@ -65,8 +65,8 @@
                             <goal>report</goal> <!-- Generates the XML file for SonarQube -->
                         </goals>
                         <configuration>
-                            <outputDirectory>C:/Users/Admin/Downloads/Java_project_code/Jacoco</outputDirectory>
-                            <dataFile>C:/Users/Admin/Downloads/Java_project_code/Jacoco/jacoco.exec</dataFile>
+                            <outputDirectory>${project.build.directory}/Jacoco</outputDirectory>
+                            <dataFile>${project.build.directory}/jacoco.exec</dataFile>
                             <outputFormats>
                                 <outputFormat>XML</outputFormat>
                             </outputFormats>
@@ -116,8 +116,8 @@
                                     <goal>report</goal>
                                 </goals>
                                 <configuration>
-                                    <outputDirectory>C:/Users/Admin/Downloads/Java_project_code/Jacoco</outputDirectory>
-                                    <dataFile>C:/Users/Admin/Downloads/Java_project_code/Jacoco/jacoco.exec</dataFile>
+                                    <outputDirectory>${project.build.directory}/Jacoco</outputDirectory>
+                                    <dataFile>${project.build.directory}/jacoco.exec</dataFile>
                                     <outputFormats>
                                         <outputFormat>XML</outputFormat>
                                     </outputFormats>
